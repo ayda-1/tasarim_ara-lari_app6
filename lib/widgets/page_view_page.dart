@@ -1,0 +1,15 @@
+import 'package:flutter/material.dart';
+
+class PageViewPage extends StatefulWidget {
+  const PageViewPage({super.key});
+
+  @override
+  State<PageViewPage> createState() => _PageViewPageState();
+}
+
+class _PageViewPageState extends State<PageViewPage> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
