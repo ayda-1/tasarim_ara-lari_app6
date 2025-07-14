@@ -1,7 +1,11 @@
 import 'package:app6/widgets/expansion_tile_page.dart';
+import 'package:app6/widgets/filter_menu_with_chips.dart';
+import 'package:app6/widgets/image_and_tabbar_page.dart';
 import 'package:app6/widgets/liste_ornek.dart';
+import 'package:app6/widgets/nested_tabbar_ornek.dart';
 import 'package:app6/widgets/page_view_page.dart';
 import 'package:app6/widgets/settings_expansion_menu.dart';
+import 'package:app6/widgets/simple_image_slider.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: MyProject());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: FilterMenuWithChips(),
+    );
   }
 }
 
@@ -40,7 +47,8 @@ class _MyProjectState extends State<MyProject> {
       ListeOrnek(listKey: keyList),
       //ExpansionTilePage(expansionKey: keyExpansion),
       SettingsExpansionMenu(),
-      PageViewPage(),
+      //PageViewPage(),
+      SimpleImageSlider(),
     ];
   }
 
