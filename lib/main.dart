@@ -1,6 +1,7 @@
 import 'package:app6/widgets/expansion_tile_page.dart';
 import 'package:app6/widgets/liste_ornek.dart';
 import 'package:app6/widgets/page_view_page.dart';
+import 'package:app6/widgets/settings_expansion_menu.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,8 +25,25 @@ class MyProject extends StatefulWidget {
 }
 
 class _MyProjectState extends State<MyProject> {
-  List<Widget> sayfalar = [ListeOrnek(), ExpansionTilePage(), PageViewPage()];
   int bottomIndex = 0;
+  var keyList = PageStorageKey(
+    "key liste",
+  ); //bunlar sayfadan sayfaya geçişte diğer sayfada kalınan yerin 0lanmaması için
+  var keyExpansion = PageStorageKey("key expansion");
+  late List<Widget> sayfalar;
+  @override
+  void initState() {
+    //key yapısına ulasabilmesi icin ,listeyi initstate'de dolduruyoruz, bu key'ler için yani, baska sayfa geçişinde önceki sayfanın nerde oldugu bilgisi veriliyor
+    // TODO: implement initState
+    super.initState();
+    sayfalar = [
+      ListeOrnek(listKey: keyList),
+      //ExpansionTilePage(expansionKey: keyExpansion),
+      SettingsExpansionMenu(),
+      PageViewPage(),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ExpansionTilePage extends StatefulWidget {
-  const ExpansionTilePage({super.key});
+  final PageStorageKey expansionKey;
+  const ExpansionTilePage({super.key, required this.expansionKey});
 
   @override
   State<ExpansionTilePage> createState() => _ExpansionTilePageState();
@@ -11,9 +12,13 @@ class _ExpansionTilePageState extends State<ExpansionTilePage> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      key: widget.expansionKey,
       itemCount: 5,
       itemBuilder: (context, index) {
         return ExpansionTile(
+          key: PageStorageKey(
+            index,
+          ), //burada truefalse bilgisi alınmazsa expansiontile 'a da key vermemiz gerekiyor
           title: Text("Başlık ${index + 1}"),
           leading: Icon(Icons.wb_sunny),
           //sağ kosedeki iconu değiştirir
