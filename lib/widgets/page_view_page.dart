@@ -10,6 +10,8 @@ class PageViewPage extends StatefulWidget {
 class _PageViewPageState extends State<PageViewPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Center(
+      child: Text("PageView Sayfası", style: TextStyle(fontSize: 40)),
+    );
   }
 }
